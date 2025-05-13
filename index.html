@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wastewater Treatment</title>
+   <link rel="stylesheet" href="minor_project2.css">
+</head>
+<body>
+
+    <header>
+        <h1>Wastewater Treatment Plant</h1>
+        <select id="languageSelect" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="mr">मराठी</option>
+        </select>
+    </header>
+
+    <div class="content">
+        <h1>Introduction</h1>
+        <p id="intro">Wastewater treatment is a process used to remove contaminants from wastewater or sewage and convert it into an effluent that can be returned to the water cycle. This process is essential for maintaining a clean environment and protecting public health.</p>
+
+        <h2 id="why_importance">Why is Wastewater Treatment Important?</h2>
+        <p id="why_text">Untreated wastewater can be harmful to the environment and human health. It can pollute rivers, lakes, and oceans, making them unsuitable for drinking, fishing, or recreation.</p>
+
+        <h2>Wastewater Treatment Parameters</h2>
+        <table id="parameters-table">
+            <thead>
+                <tr>
+                    <th>Parameters</th>
+                    <th>Enfluent</th>
+                    <th>Effluent</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>pH</td>
+                    <td id="ph-before">6.5</td>
+                    <td id="ph-after">7.5</td>
+                </tr>
+                <tr>
+                    <td>Biochemical Oxygen Demand (BOD)</td>
+                    <td id="bod-before">300 mg/L</td>
+                    <td id="bod-after">20 mg/L</td>
+                </tr>
+                <tr>
+                    <td>Chemical Oxygen Demand (COD)</td>
+                    <td id="cod-before">600 mg/L</td>
+                    <td id="cod-after">50 mg/L</td>
+                </tr>
+                <tr>
+                    <td>Total Suspended Solids (TSS)</td>
+                    <td id="tss-before">150 mg/L</td>
+                    <td id="tss-after">10 mg/L</td>
+                </tr>
+                <tr>
+                    <td>Nitrogen</td>
+                    <td id="nitrogen-before">40 mg/L</td>
+                    <td id="nitrogen-after">5 mg/L</td>
+                </tr>
+                <tr>
+                    <td>Phosphorus</td>
+                    <td id="phosphorus-before">10 mg/L</td>
+                    <td id="phosphorus-after">1 mg/L</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Historical Data Section -->
+        <h2>Past Analysis Data</h2>
+
+        <!-- Table for past data -->
+        <table id="past-data-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>pH</th>
+                    <th>BOD (mg/L)</th>
+                    <th>COD (mg/L)</th>
+                    <th>TSS (mg/L)</th>
+                    <th>Nitrogen (mg/L)</th>
+                    <th>Phosphorus (mg/L)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be inserted here dynamically -->
+            </tbody>
+        </table>
+
+        <!-- Graph Section -->
+        <div id="chart-container">
+            <canvas id="wastewaterChart"></canvas>
+        </div>
+
+        <a href="#" class="admin-btn" onclick="showLoginSection()">Admin Login</a>
+
+        <div class="login-section" id="login-section">
+            <h2>Login to Update Parameters</h2>
+            <input type="text" id="username" placeholder="Username" required />
+            <input type="password" id="password" placeholder="Password" required />
+            <button onclick="login()">Login</button>
+        </div>
+
+        <div id="update-section">
+            <h2>Update Parameters</h2>
+            <table class="editable-table" id="editable-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Enfluent</th>
+                        <th>Effluent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>pH</td>
+                        <td id="editable-ph-before" contenteditable="true">6.5</td>
+                        <td id="editable-ph-after" contenteditable="true">7.5</td>
+                    </tr>
+                    <tr>
+                        <td>Biochemical Oxygen Demand (BOD)</td>
+                        <td id="editable-bod-before" contenteditable="true">300 mg/L</td>
+                        <td id="editable-bod-after" contenteditable="true">20 mg/L</td>
+                    </tr>
+                    <tr>
+                        <td>Chemical Oxygen Demand (COD)</td>
+                        <td id="editable-cod-before" contenteditable="true">600 mg/L</td>
+                        <td id="editable-cod-after" contenteditable="true">50 mg/L</td>
+                    </tr>
+                    <tr>
+                        <td>Total Suspended Solids (TSS)</td>
+                        <td id="editable-tss-before" contenteditable="true">150 mg/L</td>
+                        <td id="editable-tss-after" contenteditable="true">10 mg/L</td>
+                    </tr>
+                    <tr>
+                        <td>Nitrogen</td>
+                        <td id="editable-nitrogen-before" contenteditable="true">40 mg/L</td>
+                        <td id="editable-nitrogen-after" contenteditable="true">5 mg/L</td>
+                    </tr>
+                    <tr>
+                        <td>Phosphorus</td>
+                        <td id="editable-phosphorus-before" contenteditable="true">10 mg/L</td>
+                        <td id="editable-phosphorus-after" contenteditable="true">1 mg/L</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="update-btn" onclick="updateValues()">Update Values</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Wastewater Treatment, All Rights Reserved</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./script.js">
+      
+    </script>
+
+</body>
+</html>
